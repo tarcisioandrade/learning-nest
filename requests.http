@@ -1,0 +1,46 @@
+@BASE_URL = http://localhost:3000
+@COMMON_USER_BEARER_TOKEN = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4OGJmY2JhYi0zZDJhLTQ0ZjYtYTAzZS1iMGQwMjcwMTE4OWMiLCJlbWFpbCI6IndvbHR6QGdtYWlsLmNvbSIsInJvbGUiOiJDT01NT04iLCJpYXQiOjE3MjgwNDY3OTYsImV4cCI6MTcyODA1MDM5Nn0.L7lyYT5vR4wPobY_Q1-uPPon7GvieIsr6LhqyEF0SKc
+@ADMIN_USER_BEARER_TOKEN = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY0YjM0MGUxLWNiMjktNDgwMC1hMmFjLTY2ZTAwYWJmNTRlNCIsImVtYWlsIjoibGVsZG9tZWxkb0BnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjgxNzI5NzQsImV4cCI6MTc1OTczMDU3NH0.WC1dH3Yk0gzA_uBP5M5bO265HOdVI5fW5VfgorFa2EQ
+
+###
+POST {{BASE_URL}}/book
+content-type: application/json
+
+{
+  "title": "conde de monte cristo",
+  "image": "http://storage.librasoft.com",
+  "isbn": "121256465467878",
+  "coverType": "Paperback"
+}
+
+### 
+
+GET {{BASE_URL}}/book
+Authorization: {{ADMIN_USER_BEARER_TOKEN}}
+
+###
+POST {{BASE_URL}}/user
+content-type: application/json
+  
+{
+  "email": "woltz@gmail.com",
+  "password": "123456789",
+  "role": "COMMON"
+}
+
+###
+GET {{BASE_URL}}/user/session
+Authorization: {{ADMIN_USER_BEARER_TOKEN}}
+
+###
+GET {{BASE_URL}}/user/f4b340e1-cb29-4800-a2ac-66e00abf54e4
+Authorization: {{ADMIN_USER_BEARER_TOKEN}}
+
+###
+POST {{BASE_URL}}/auth
+content-type: application/json
+
+{
+  "email": "leldomeldo@gmail.com",
+  "password": "123456789"
+}
